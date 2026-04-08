@@ -14,23 +14,23 @@
       <p><strong>Rocket Type:</strong> {{ mission.rocket.rocket_type }}</p>
 
       <p>
-        <strong>Article:</strong>
+        <strong>Article: </strong>
         <a [href]="mission.links.article_link" target="_blank">{{ mission.links.article_link }}</a>
       </p>
 
       <p>
-        <strong>Wikipedia:</strong>
+        <strong>Wikipedia: </strong>
         <a [href]="mission.links.wikipedia" target="_blank">{{ mission.links.wikipedia }}</a>
       </p>
 
       <p>
-        <strong>Video:</strong>
+        <strong>Video: </strong>
         <a [href]="mission.links.video_link" target="_blank">{{ mission.links.video_link }}</a>
       </p>
     </mat-card-content>
 
     <mat-card-actions>
-      <button mat-raised-button color="primary" routerLink="/">Back to List</button>
+      <button mat-raised-button color="primary" type="button" routerLink="/">Back to List</button>
     </mat-card-actions>
   </mat-card>
 </div>

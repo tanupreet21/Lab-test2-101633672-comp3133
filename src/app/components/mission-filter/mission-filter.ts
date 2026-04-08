@@ -6,6 +6,7 @@ import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-mission-filter',
+  standalone: true,
   imports: [
     FormsModule,
     MatFormFieldModule,
