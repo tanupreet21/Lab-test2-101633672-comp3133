@@ -1,0 +1,19 @@
+.container {
+  padding: 20px;
+}
+
+.mission-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+.mission-card {
+  height: 100%;
+}
+
+img {
+  height: 220px;
+  object-fit: contain;
+  padding: 10px;
+}

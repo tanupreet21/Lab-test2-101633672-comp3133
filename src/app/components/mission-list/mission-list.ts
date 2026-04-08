@@ -1,9 +1,40 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { Mission } from '../../../models/mission.model';
+import { SpacexService } from '../../services/spacex-service';
+
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-mission-list',
-  imports: [],
+  imports: [
+    CommonModule,
+    RouterModule,
+    MatCardModule,
+    MatButtonModule
+  ],
   templateUrl: './mission-list.html',
   styleUrl: './mission-list.css',
 })
-export class MissionList {}
+export class MissionList {
+  missions: Mission[] = [];
+
+  constructor(private spacexService: SpacexService){}
+
+  ngOnInit(): void {
+    this.loadAllMissions();
+  }
+
+  loadAllMissions(){
+    this.spacexService.getAllMissions().subscribe({
+      next: (data) => {
+        this.missions = data;
+      },
+      error: (err) => {
+        console.error('Error fetching missions:', err);
+      }
+    });
+  }
+}
