@@ -4,5 +4,5 @@ import { MissionDetails } from './components/mission-details/mission-details';
 
 export const routes: Routes = [
     { path: '', component: MissionList},
-    { path: '/mission/:id', component: MissionDetails}
+    { path: 'mission/:id', component: MissionDetails}
 ];
