@@ -1,1 +1,9 @@
-<p>mission-filter works!</p>
+<div class="filter-container">
+  <mat-form-field appearance="outline">
+    <mat-label>Launch Year</mat-label>
+    <input matInput [(ngModel)]="year" placeholder="e.g. 2026" />
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" (click)="applyFilter()">Search</button>
+  <button mat-stroked-button color="accent" (click)="clearFilter()">Clear</button>
+</div>

@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { Mission } from '../../../models/mission.model';
 import { SpacexService } from '../../services/spacex-service';
+import { MissionFilter } from '../mission-filter/mission-filter';
 
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
@@ -13,7 +14,8 @@ import { MatButtonModule } from '@angular/material/button';
     CommonModule,
     RouterModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    MissionFilter
   ],
   templateUrl: './mission-list.html',
   styleUrl: './mission-list.css',
@@ -34,6 +36,22 @@ export class MissionList {
       },
       error: (err) => {
         console.error('Error fetching missions:', err);
+      }
+    });
+  }
+
+  filterByYear(year: string) {
+    if(!year) {
+      this.loadAllMissions();
+      return;
+    }
+
+    this.spacexService.getMissionsByYear(year).subscribe({
+      next: (data) => {
+        this.missions = data;
+      },
+      error: (err) => {
+        console.error('Error filtering missions: ', err);
       }
     });
   }

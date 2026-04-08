@@ -1,6 +1,8 @@
 <div class="container">
   <h1>SpaceX Missions</h1>
 
+  <app-mission-filter (yearFilter)="filterByYear($event)"></app-mission-filter>
+
   <div class="mission-grid">
     @for (mission of missions; track mission.flight_number) {
       <mat-card class="mission-card">
