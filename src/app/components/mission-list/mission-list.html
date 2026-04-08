@@ -16,21 +16,30 @@
           <mat-card-title>{{ mission.mission_name }}</mat-card-title>
           <mat-card-subtitle>Flight #{{ mission.flight_number }}</mat-card-subtitle>
         </mat-card-header>
-      </mat-card>
-      <mat-card-content>
-        <p><strong>Launch Year: </strong>{{ mission.launch_year }}</p>
-        <p><strong>Details: </strong>{{ mission.details || 'No Details available' }}</p>
-        <p><strong>Rocket Name: </strong>{{ mission.rocket.rocket_type }}</p>
-        <p><strong>Rocket Type: </strong>{{ mission.rocket.rocket_type }}</p>
 
-        <p>
-          <strong>Links: </strong><br />
-          <a [href]="mission.links.article_link" target="_blank">Article</a>
-          <a [href]="mission.links.wikipedia" target="_blank">Wikipedia</a>
-          <a [href]="mission.links.video_link" target="_blank">Video</a>
-        </p>
-      </mat-card-content>
-      <mat-card-actions> </mat-card-actions>
+        <mat-card-content>
+          <p><strong>Launch Year: </strong>{{ mission.launch_year }}</p>
+          <p><strong>Details: </strong>{{ mission.details || 'No Details available' }}</p>
+          <p><strong>Rocket Name: </strong>{{ mission.rocket.rocket_type }}</p>
+          <p><strong>Rocket Type: </strong>{{ mission.rocket.rocket_type }}</p>
+
+          <div class="links">
+            <strong>Links: </strong><br />
+            <a [href]="mission.links.article_link" target="_blank">Article</a>
+            <a [href]="mission.links.wikipedia" target="_blank">Wikipedia</a>
+            <a [href]="mission.links.video_link" target="_blank">Video</a>
+          </div>
+        </mat-card-content>
+        <mat-card-actions>
+          <button
+            mat-raised-button
+            color="primary"
+            [routerLink]="['/mission', mission.flight_number]"
+          >
+            View Details
+          </button>
+        </mat-card-actions>
+      </mat-card>
     }
   </div>
 </div>

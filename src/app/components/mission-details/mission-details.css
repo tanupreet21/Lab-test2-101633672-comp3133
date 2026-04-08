@@ -1,0 +1,11 @@
+.details-container {
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+img {
+  height: 300px;
+  object-fit: contain;
+  padding: 20px;
+}

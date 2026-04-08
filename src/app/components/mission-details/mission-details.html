@@ -1,1 +1,36 @@
-<p>mission-details works!</p>
+<div class="details-container" *ngIf="mission">
+  <mat-card>
+    <img mat-card-image [src]="mission.links.mission_patch_small" [alt]="mission.mission_name" />
+
+    <mat-card-header>
+      <mat-card-title>{{ mission.mission_name }}</mat-card-title>
+      <mat-card-subtitle>Flight #{{ mission.flight_number }}</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <p><strong>Launch Year:</strong> {{ mission.launch_year }}</p>
+      <p><strong>Details:</strong> {{ mission.details || 'No details available' }}</p>
+      <p><strong>Rocket Name:</strong> {{ mission.rocket.rocket_name }}</p>
+      <p><strong>Rocket Type:</strong> {{ mission.rocket.rocket_type }}</p>
+
+      <p>
+        <strong>Article:</strong>
+        <a [href]="mission.links.article_link" target="_blank">{{ mission.links.article_link }}</a>
+      </p>
+
+      <p>
+        <strong>Wikipedia:</strong>
+        <a [href]="mission.links.wikipedia" target="_blank">{{ mission.links.wikipedia }}</a>
+      </p>
+
+      <p>
+        <strong>Video:</strong>
+        <a [href]="mission.links.video_link" target="_blank">{{ mission.links.video_link }}</a>
+      </p>
+    </mat-card-content>
+
+    <mat-card-actions>
+      <button mat-raised-button color="primary" routerLink="/">Back to List</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
