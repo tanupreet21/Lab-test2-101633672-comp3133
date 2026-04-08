@@ -1,59 +1,92 @@
-# 101633672LabTest2Comp3133
+# SpaceX Mission Explorer
+## COMP 3133 – Lab Test 2 (Angular Application)
+# Overview
+This Angular application allows users to explore SpaceX launch missions using the public SpaceX REST API.
+Users can view a list of missions, filter them by launch year, and see detailed information for each mission.
+# Technologies Used
+Angular (Standalone Components)
+Angular Material (UI Components)
+TypeScript
+RxJS
+SpaceX REST API
+HTML / CSS
+# Live Demo
+https://lab-test2-101633672-comp3133.vercel.app
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.2.
+# Features
+1. Mission List
+Displays all SpaceX launches
 
-## Development server
+Shows:
+Flight Number, 
+Mission Name, 
+Launch Year, 
+Mission Details, 
+Rocket Name & Type, 
+Mission Patch Image, 
+External Links (Article, Wikipedia, Video)
 
-To start a local development server, run:
+2. Filter by Launch Year
 
-```bash
-ng serve
-```
+Users can search missions by year 
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Uses API endpoint:
+https://api.spacexdata.com/v3/launches?launch_year=YYYY
 
-## Code scaffolding
+3. Mission Details Page
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Displays full details of selected mission
 
-```bash
-ng generate component component-name
-```
+Uses route parameter (/mission/:id)
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Shows:
 
-```bash
-ng generate --help
-```
+Mission Name, 
+Flight Number, 
+Launch Year, 
+Rocket Info, 
+Links (Article, Wikipedia, Video)
 
-## Building
+# Navigation
+Angular Routing used, Seamless navigation between:
+List page and Details page. API Endpoints Used
 
-To build the project run:
+All Missions:
+https://api.spacexdata.com/v3/launches
 
-```bash
-ng build
-```
+Filter by Year:
+https://api.spacexdata.com/v3/launches?launch_year=2020
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Mission Details:
+https://api.spacexdata.com/v3/launches/{flight_number}
 
-## Running unit tests
+# Components
+1. MissionList: 
+Fetches and displays all missions. 
+Integrates filter component
+2. MissionFilter: 
+Allows user to input launch year. 
+Emits selected year to parent
+3. MissionDetails: 
+Fetches mission data using route parameter. 
+Displays detailed mission info
+# Service
+SpacexService: 
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+Handles all API calls:
 
-```bash
-ng test
-```
+getAllMissions()
 
-## Running end-to-end tests
+getMissionsByYear(year)
 
-For end-to-end (e2e) testing, run:
+getMissionDetailsById(id)
 
-```bash
-ng e2e
-```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+# Notes
+1. Server-Side Rendering (SSR) was removed to ensure proper client-side rendering.
+2. Angular standalone components were used instead of NgModules.
+3. Change detection handled for asynchronous API calls.
 
-## Additional Resources
+# Author
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Tanupreet Kaur (Full Stack Developer)
